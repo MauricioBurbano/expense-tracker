@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Form onSubmit={handleForm} />
-      <Filter expenses={expenses}/>
+      <Filter />
       <Expenses expenses={expenses} />
     </>
   )
