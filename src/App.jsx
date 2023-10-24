@@ -5,16 +5,21 @@ import { useState } from "react"
 
 function App() {
   const [expenses, setExpenses] = useState([])
+  const [filter, setFilter] = useState('All')
 
   function handleForm(input) {
     setExpenses(prev => [input, ...prev])
   }
 
+  function handleFilter(filter) {
+    setFilter(filter)
+  }
+
   return (
     <>
       <Form onSubmit={handleForm} />
-      <Filter />
-      <Expenses expenses={expenses} />
+      <Filter filter={handleFilter} />
+      <Expenses expenses={expenses} filter={filter} />
     </>
   )
 }
