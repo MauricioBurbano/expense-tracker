@@ -2,7 +2,21 @@ import { useState } from "react"
 
 function Filter(props) {
     const [filter, setFilter] = useState('All')
-    const years = [2020, 2021, 2022, 2023]
+    
+    let years = props.expenses.map(expense => expense.date.substring(0, 4)).sort()
+    years = unique(years)
+
+    function unique(years) {
+        let uniqueYears = []
+
+        years.forEach(year => {
+            if (!uniqueYears.includes(year)) {
+                uniqueYears.push(year)
+            }
+        });
+
+        return uniqueYears
+    }
 
     function handleSelect(event) {
         props.filter(event.target.value)

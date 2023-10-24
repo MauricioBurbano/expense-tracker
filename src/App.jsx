@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Form onSubmit={handleForm} />
-      <Filter filter={handleFilter} />
+      <Filter filter={handleFilter} expenses={expenses} />
       <Expenses expenses={expenses} filter={filter} />
     </>
   )
