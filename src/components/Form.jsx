@@ -20,9 +20,16 @@ function Form(props) {
 
     function handleForm(event) {
         const key = Math.random()
+
         props.onSubmit(input, key)
 
+        props.onToggle()
+
         event.preventDefault()
+    }
+
+    function handleClick() {
+        props.onToggle()
     }
 
     return(
@@ -30,7 +37,8 @@ function Form(props) {
             <input type="text" placeholder="Title" name="title" onChange={handleInput} value={input.title} />
             <input type="number" placeholder="Value" min='0.01' step='0.01' name="value" onChange={handleInput} value={input.value} />
             <input type="date" name="date" onChange={handleInput} value={input.date} />
-            <button>Submit</button>
+            <button type="button" onClick={handleClick}>Cancel</button>
+            <button type="submit">Submit</button>
         </form>
     )
 }

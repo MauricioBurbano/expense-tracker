@@ -1,8 +1,10 @@
+import { useState } from "react"
 import Form from "./components/Form"
 import Expenses from "./components/Expenses"
-import { useState } from "react"
+import Add from "./components/Add"
 
 function App() {
+  const [displayForm, setDisplayForm] = useState(false)
   const [expenses, setExpenses] = useState([])
 
   function handleForm(input, key) {
@@ -10,9 +12,16 @@ function App() {
     setExpenses(prev => [uniqueInput, ...prev])
   }
 
+  function toogleDisplay() {
+    setDisplayForm(prev => !prev)
+  }
+
   return (
     <>
-      <Form onSubmit={handleForm} />
+      {displayForm ? 
+        <Form onSubmit={handleForm} onToggle={toogleDisplay} /> :
+        <Add onToggle={toogleDisplay} />
+      }
       <Expenses expenses={expenses} />
     </>
   )
