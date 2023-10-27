@@ -18,7 +18,7 @@ function Expenses(props) {
                 } else if (filter === expense.date.substring(0, 4)) {
                     return true
                 } else return false
-            })).map(expense => { return <Expense expense={expense} key={Math.random()} />})}
+            })).map(expense => { return <Expense expense={expense} key={expense.key} />})}
         </>
     )
 }

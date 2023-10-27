@@ -1,4 +1,4 @@
-function Filter(props) {    
+function Filter(props) {
     let years = props.expenses.map(expense => expense.date.substring(0, 4)).sort()
     years = unique(years)
 

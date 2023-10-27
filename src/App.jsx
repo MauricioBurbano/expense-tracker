@@ -5,8 +5,9 @@ import { useState } from "react"
 function App() {
   const [expenses, setExpenses] = useState([])
 
-  function handleForm(input) {
-    setExpenses(prev => [input, ...prev])
+  function handleForm(input, key) {
+    const uniqueInput = {...input, key: key}
+    setExpenses(prev => [uniqueInput, ...prev])
   }
 
   return (

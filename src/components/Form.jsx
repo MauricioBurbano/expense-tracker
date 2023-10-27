@@ -19,9 +19,10 @@ function Form(props) {
     }
 
     function handleForm(event) {
-        event.preventDefault()
+        const key = Math.random()
+        props.onSubmit(input, key)
 
-        props.onSubmit(input)
+        event.preventDefault()
     }
 
     return(
