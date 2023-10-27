@@ -28,7 +28,7 @@ function Form(props) {
         <form onSubmit={handleForm}>
             <input type="text" placeholder="Title" name="title" onChange={handleInput} value={input.title} />
             <input type="number" placeholder="Value" min='0.01' step='0.01' name="value" onChange={handleInput} value={input.value} />
-            <input type="date" min='2020-01-01' max='2023-12-31' name="date" onChange={handleInput} value={input.date} />
+            <input type="date" name="date" onChange={handleInput} value={input.date} />
             <button>Submit</button>
         </form>
     )
