@@ -1,6 +1,7 @@
 import Filter from "./Filter"
 import Expense from "./Expense"
 import { useState } from "react"
+import Chart from "./Chart"
 
 function Expenses(props) {
     const [filter, setFilter] = useState('All')
@@ -19,7 +20,8 @@ function Expenses(props) {
 
     return (
         <>
-            <Filter expenses={props.expenses} onFilter={handleFilter} value={filter} />
+            <Filter yearlyExpenses={props.yearlyExpenses} onFilter={handleFilter} value={filter} />
+            <Chart yearlyExpenses={props.yearlyExpenses} />
             {filteredExpenses.length === 0 && <p>No expenses yet</p>}
             {filteredExpenses.map(expense => { 
                     return <Expense expense={expense} key={expense.key} />
